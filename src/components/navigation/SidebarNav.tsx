@@ -9,7 +9,6 @@ const LINKS = [
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "/resume", label: "Resume" },
 ] as const;
 
 export default function SidebarNav() {
@@ -90,7 +89,12 @@ export default function SidebarNav() {
           x: pos ? pos.x : 0,
           y: pos ? pos.y : 0,
         }}
-        transition={{ duration: 0.35 }}
+        transition={{
+          x: { type: "spring", stiffness: 500, damping: 28, mass: 0.8, bounce: 0.2 },
+          y: { type: "spring", stiffness: 500, damping: 28, mass: 0.8, bounce: 0.2 },
+          scale: { type: "spring", stiffness: 500, damping: 30, mass: 0.7, bounce: 0.25 },
+          opacity: { duration: 0.2 }
+        }}
         className="pointer-events-none absolute left-0 top-0 h-1 w-1 rounded-full bg-red-500"
         aria-hidden
       />
