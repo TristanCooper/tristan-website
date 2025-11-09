@@ -57,8 +57,8 @@ export default function AboutPage() {
   });
 
   return (
-    <div className="prose prose-zinc max-w-none grid grid-cols-6">
-      <div className="space-y-3 col-span-6 md:col-span-1 order-2 md:order-1 md:pr-6">
+    <div className="prose prose-zinc max-w-none grid grid-cols-6 gap-6">
+      <div className="space-y-3 col-span-6 md:col-span-1 order-2 md:order-1">
         <p>
           I grew up in rural Dorset taking apart computers before I'd learned to properly put them back together. That curiosity led me to programming, and by the time I finished school, I'd built a maintenance tracking system for a local dairy - solving real problems with code felt natural.
         </p>
@@ -71,16 +71,16 @@ export default function AboutPage() {
       </div>
 
       <div ref={containerRef} className="relative col-span-6 md:col-span-5 order-1 md:order-2">
-        <div className="absolute left-4 top-0 bottom-0 w-px bg-foreground/10" />
+        <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-foreground/10" />
         <motion.div
           style={{ scaleY: progress }}
-          className="absolute left-4 top-0 bottom-0 w-px origin-top bg-foreground/30 z-10"
+          className="absolute left-4 top-0 bottom-0 w-[2px] origin-top bg-foreground/30 z-10"
         />
 
         <ul className="space-y-10">
           {ITEMS.map((item, i) => (
             <li key={i} className="relative pl-10 sm:pl-16">
-              <span className="absolute left-4 top-1.5 h-2 w-2 -translate-x-1/2 rounded-full bg-brand" />
+              <span className="absolute left-4 top-1.5 h-2 w-2 -translate-x-[3px] z-10 rounded-full bg-brand" />
 
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
