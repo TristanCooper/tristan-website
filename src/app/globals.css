@@ -1,14 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #1a1a2e;
+  --foreground: #ededed;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --color-brand: #ff6b35;
+  /* Brand color scale for Tailwind shade modifiers */
+  --color-brand-50: color-mix(in oklab, white 95%, var(--color-brand));
+  --color-brand-100: color-mix(in oklab, white 90%, var(--color-brand));
+  --color-brand-200: color-mix(in oklab, white 80%, var(--color-brand));
+  --color-brand-300: color-mix(in oklab, white 70%, var(--color-brand));
+  --color-brand-400: color-mix(in oklab, white 60%, var(--color-brand));
+  --color-brand-500: var(--color-brand);
+  --color-brand-600: color-mix(in oklab, black 10%, var(--color-brand));
+  --color-brand-700: color-mix(in oklab, black 20%, var(--color-brand));
+  --color-brand-800: color-mix(in oklab, black 30%, var(--color-brand));
+  --color-brand-900: color-mix(in oklab, black 40%, var(--color-brand));
+  --color-brand-950: color-mix(in oklab, black 50%, var(--color-brand));
+
+  --color-dark-navy: #1a1a2e;
+  --color-dark-navy-50: color-mix(in oklab, white 95%, var(--color-dark-navy));
+  --color-dark-navy-100: color-mix(in oklab, white 90%, var(--color-dark-navy));
+  --color-dark-navy-200: color-mix(in oklab, white 80%, var(--color-dark-navy));
+  --color-dark-navy-300: color-mix(in oklab, white 70%, var(--color-dark-navy));
+  --color-dark-navy-400: color-mix(in oklab, white 60%, var(--color-dark-navy));
+  --color-dark-navy-500: var(--color-dark-navy);
+  --color-dark-navy-600: color-mix(in oklab, black 10%, var(--color-dark-navy));
+  --color-dark-navy-700: color-mix(in oklab, black 20%, var(--color-dark-navy));
+  --color-dark-navy-800: color-mix(in oklab, black 30%, var(--color-dark-navy));
+  --color-dark-navy-900: color-mix(in oklab, black 40%, var(--color-dark-navy));
+  --color-dark-navy-950: color-mix(in oklab, black 50%, var(--color-dark-navy));
+
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
@@ -32,12 +59,7 @@
   font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a1a2e;
-    --foreground: #ededed;
-  }
-}
+
 
 html,
 body {

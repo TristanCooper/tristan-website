@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import SidebarNav from "../components/navigation/SidebarNav";
+import PageTransition from "../components/PageTransition";
 
 export const metadata: Metadata = {
   title: "Tristan Cooper",
@@ -37,9 +38,9 @@ export default function RootLayout({
           </div>
 
           {/* Page content */}
-          <section className="mt-4 sm:mt-0 sm:ring-1 ring-inset ring-foreground/15 p-4 sm:p-8 self-start flex-1 min-w-full sm:min-w-0">
+          <PageTransition className="mt-4 sm:mt-0 p-4 sm:pt-0 self-start flex-1 min-w-full sm:min-w-0">
             {children}
-          </section>
+          </PageTransition>
         </main>
         <Analytics />
         <SpeedInsights />

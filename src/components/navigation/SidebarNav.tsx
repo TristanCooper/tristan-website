@@ -100,7 +100,7 @@ export default function SidebarNav() {
       />
 
       {/* Name (home link) */}
-      <h1 className="text-2xl font-normal tracking-tight sm:text-3xl">
+      <h1 className="text-2xl font-normal tracking-tight sm:text-3xl text-center sm:text-left">
         <Link ref={homeRef} href="/">
           Tristan Cooper
           <span ref={homeBaselineRef} className="inline-block align-baseline w-0 h-0" />
