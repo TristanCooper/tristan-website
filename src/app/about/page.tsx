@@ -26,7 +26,7 @@ const ITEMS: Item[] = [
   },
   {
     year: "2017 - 2018",
-    title: "Software Engineer",
+    title: "Associate Software Engineer",
     subtitle: "NowTV",
     description: "Part of the original team to build the entirely new NowTV Web account management platform after business pivoted to focus on streaming, internet and phone. A large emphasis was placed on accessibility and pixel-perfect design.",
   },
