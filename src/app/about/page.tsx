@@ -48,7 +48,7 @@ export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 90%"],
+    offset: ["start 10%", "end end"],
   });
   const progress = useSpring(scrollYProgress, {
     stiffness: 160,
