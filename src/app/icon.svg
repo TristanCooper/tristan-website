@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="16" fill="#1a1a2e"/>
+  
+  <!-- Code brackets -->
+  <path d="M 10 10 L 6 16 L 10 22" 
+        stroke="#ff6b35" 
+        stroke-width="2.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        fill="none"/>
+  
+  <path d="M 22 10 L 26 16 L 22 22" 
+        stroke="#ff6b35" 
+        stroke-width="2.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        fill="none"/>
+  
+  <!-- Forward slash in the middle -->
+  <line x1="18" y1="9" x2="14" y2="23" 
+        stroke="#ff6b35" 
+        stroke-width="2.5" 
+        stroke-linecap="round"/>
+</svg>

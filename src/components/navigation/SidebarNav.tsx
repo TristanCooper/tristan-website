@@ -95,7 +95,7 @@ export default function SidebarNav() {
           scale: { type: "spring", stiffness: 500, damping: 30, mass: 0.7, bounce: 0.25 },
           opacity: { duration: 0.2 }
         }}
-        className="pointer-events-none absolute left-0 top-0 h-1 w-1 rounded-full bg-red-500"
+        className="pointer-events-none absolute left-0 top-0 h-1 w-1 rounded-full bg-brand"
         aria-hidden
       />
 
