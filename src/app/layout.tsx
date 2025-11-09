@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
+
 import SidebarNav from "../components/navigation/SidebarNav";
 
 export const metadata: Metadata = {
@@ -38,6 +40,7 @@ export default function RootLayout({
             {children}
           </section>
         </main>
+        <Analytics />
       </body>
     </html>
   );
