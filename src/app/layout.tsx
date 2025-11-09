@@ -26,7 +26,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-serif antialiased`}>
-        <main className="min-h-screen bg-background p-8 text-foreground flex flex-col sm:flex-row gap-2 sm:gap-8">
+        <main className="min-h-screen bg-background p-4 sm:p-8 text-foreground flex flex-col sm:flex-row gap-2 sm:gap-8">
           {/* Floating sidebar box */}
           <div className="mx-auto sm:mx-0 w-fit ring-1 ring-inset ring-foreground/15 self-start shrink-0">
             <div className="p-4 sm:p-8">
@@ -37,7 +37,7 @@ export default function RootLayout({
           </div>
 
           {/* Page content */}
-          <section className="mt-8 sm:mt-0 ring-1 ring-inset ring-foreground/15 p-4 sm:p-8 self-start flex-1 min-w-full sm:min-w-0">
+          <section className="mt-4 sm:mt-0 sm:ring-1 ring-inset ring-foreground/15 p-4 sm:p-8 self-start flex-1 min-w-full sm:min-w-0">
             {children}
           </section>
         </main>
