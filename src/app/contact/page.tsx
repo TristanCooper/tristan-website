@@ -39,13 +39,10 @@ export default function ContactPage() {
 
   return (
     <div className="prose prose-zinc max-w-none">
-      <h2 className="m-0 text-xl font-normal">Contact</h2>
-      <p className="mt-3 text-sm text-foreground/70">Fill out the form and I’ll get back to you.</p>
-
       {status === "success" ? (
         <div className="mt-4 bg-foreground/5 p-4" role="status">Thanks! Your message has been sent.</div>
       ) : (
-        <form onSubmit={onSubmit} className="mt-6 grid gap-4 max-w-xl" noValidate>
+        <form onSubmit={onSubmit} className="grid gap-4 max-w-xl" noValidate>
           {/* Honeypot */}
           <div className="hidden">
             <label htmlFor="company" className="block text-sm">Company</label>
