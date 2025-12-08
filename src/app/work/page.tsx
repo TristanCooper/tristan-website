@@ -3,14 +3,6 @@ import FilterableProjects, { type Project } from "@/components/FilterableProject
 const PROJECTS: Project[] = [
   {
     href: "/work",
-    image: "/launchpad.png",
-    title: "Launchpad",
-    description:
-      "A no-code SaaS platform for generating amazing looking splash pages. Plus the ability to export code and deploy easily!",
-    tags: ["SaaS", "Frontend"],
-  },
-  {
-    href: "/work",
     image: "/odoo-call-board.png",
     title: "Odoo Business Essentials",
     description:

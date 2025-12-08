@@ -15,10 +15,10 @@ export default function Home() {
         className="prose prose-zinc max-w-none"
       >
         <h2 className="m-0 text-2xl sm:text-3xl font-normal leading-tight">
-          I build and ship stunning web applications
+          I build and implement digital business solutions
         </h2>
         <p className="mt-0 text-foreground/80">
-          with a focus on reliability and business impact whilst achieving accessible and pixel-perfect design
+          with a flair for design that gives users an exceptional experience.
         </p>
       </motion.div>
 
@@ -26,18 +26,8 @@ export default function Home() {
       <section className="prose prose-zinc max-w-none">
         <h3 className="m-0 text-xl font-normal">Featured projects</h3>
         {/* Grid: on md+, show two project cards and CTA in one row (3 columns), equal height */}
-        <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 md:gap-6 lg:gap-8 items-stretch">
+        <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 md:gap-6 lg:gap-8 items-stretch">
           {/* Project 1 */}
-          <div className="h-full">
-            <ProjectCard
-              href="/work"
-              image="/launchpad.png"
-              title="Launchpad"
-              description="No-code splash page generator with code export and easy deploy."
-            />
-          </div>
-
-          {/* Project 2 */}
           <div className="h-full">
             <ProjectCard
               href="/work"

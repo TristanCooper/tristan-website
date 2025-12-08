@@ -58,7 +58,7 @@ export default function AboutPage() {
 
   return (
     <div className="prose prose-zinc max-w-none grid grid-cols-6 gap-6">
-      <div className="space-y-3 col-span-6 md:col-span-1 order-2 md:order-1">
+      <div className="space-y-3 col-span-6 md:col-span-2 order-2 md:order-1">
         <p>
           I grew up in rural Dorset taking apart computers before I'd learned to properly put them back together. That curiosity led me to programming, and by the time I finished school, I'd built a maintenance tracking system for a local dairy - solving real problems with code felt natural.
         </p>
@@ -70,7 +70,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <div ref={containerRef} className="relative col-span-6 md:col-span-5 order-1 md:order-2">
+      <div ref={containerRef} className="relative col-span-6 md:col-span-4 order-1 md:order-2">
         <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-foreground/10" />
         <motion.div
           style={{ scaleY: progress }}
