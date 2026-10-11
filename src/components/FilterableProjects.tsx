@@ -4,8 +4,8 @@ import { useMemo, useState } from "react";
 import ProjectCard from "@/components/navigation/ProjectCard";
 
 export type Project = {
-  href: string;
-  image: string;
+  href?: string;
+  image?: string;
   title: string;
   description: string;
   tags: string[];
@@ -39,12 +39,13 @@ export default function FilterableProjects({ projects }: { projects: Project[] }
   return (
     <div>
       {/* Filters */}
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter projects">
         <button
           type="button"
           onClick={clearAll}
-          className={`px-2 py-0.5 text-sm ring-1 ring-inset ring-foreground/15 ${
-            active.size === 0 ? "bg-brand" : ""
+          aria-pressed={active.size === 0}
+          className={`px-2 py-0.5 text-sm ring-1 ring-inset ring-foreground/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${
+            active.size === 0 ? "bg-brand text-dark-navy-950" : ""
           }`}
         >
           All
@@ -54,8 +55,9 @@ export default function FilterableProjects({ projects }: { projects: Project[] }
             key={tag}
             type="button"
             onClick={() => toggleTag(tag)}
-            className={`px-2 py-0.5 text-sm ring-1 ring-inset ring-foreground/15 ${
-              active.has(tag) ? "bg-brand" : ""
+            aria-pressed={active.has(tag)}
+            className={`px-2 py-0.5 text-sm ring-1 ring-inset ring-foreground/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${
+              active.has(tag) ? "bg-brand text-dark-navy-950" : ""
             }`}
           >
             {tag}
@@ -67,7 +69,7 @@ export default function FilterableProjects({ projects }: { projects: Project[] }
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filtered.map((p) => (
           <ProjectCard
-            key={p.title}
+            key={p.href + p.title}
             href={p.href}
             image={p.image}
             title={p.title}

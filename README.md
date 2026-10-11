@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# tristan-website
+
+Personal portfolio for Tristan Cooper. Next.js 16 App Router + React 19 + TypeScript + Tailwind CSS v4.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - dev server
+- `npm run build` - production build
+- `npm run start` - serve production build
+- `npm run lint` - ESLint
 
-## Learn More
+## Environment
 
-To learn more about Next.js, take a look at the following resources:
+Contact form posts to `POST /api/contact` which sends via Resend:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+RESEND_API_KEY=...
+CONTACT_TO=you@example.com
+CONTACT_FROM=portfolio@resend.dev
+NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Rate limiting on `/api/contact` is in-memory (5/min/IP). Use KV/Upstash for multi-instance production.
 
-## Deploy on Vercel
+## Fonts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Self-hosted Besley via `next/font/local` (`public/fonts/besley/`). No Google Fonts CDN dependency.

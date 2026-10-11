@@ -40,7 +40,7 @@
     Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
   --font-serif: "Besley", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: var(--font-geist-mono);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 @font-face {
@@ -65,5 +65,25 @@ html,
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Besley", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+  font-family: "Besley", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #1a1a2e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

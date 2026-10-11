@@ -1,17 +1,12 @@
-"use client";
+import type { Metadata } from "next";
+import AboutTimeline, { type TimelineItem } from "@/components/AboutTimeline";
 
-import * as motion from "motion/react-client";
-import { useScroll, useSpring } from "motion/react";
-import { useRef } from "react";
-
-type Item = {
-  year: string;
-  title: string;
-  subtitle?: string;
-  description: string;
+export const metadata: Metadata = {
+  title: "About",
+  description: "About Tristan Cooper - software engineer with a decade building accessible, customer-facing platforms.",
 };
 
-const ITEMS: Item[] = [
+const ITEMS: TimelineItem[] = [
   {
     year: "2025",
     title: "Sales and Business ERP Development",
@@ -22,7 +17,7 @@ const ITEMS: Item[] = [
     year: "2019 - 2025",
     title: "Software Engineer",
     subtitle: "Peacock/NBCU",
-    description: "After Sky was acquired by NBCUinversal, the new US streaming service was created from the codebase of NowTV with an aim on scalability and localisation as key priorities due to the ambition to launch in multiple countries.",
+    description: "After Sky was acquired by NBCUniversal, the new US streaming service was created from the codebase of NowTV with an aim on scalability and localisation as key priorities due to the ambition to launch in multiple countries.",
   },
   {
     year: "2017 - 2018",
@@ -45,60 +40,23 @@ const ITEMS: Item[] = [
 ];
 
 export default function AboutPage() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 10%", "end end"],
-  });
-  const progress = useSpring(scrollYProgress, {
-    stiffness: 160,
-    damping: 30,
-    mass: 0.6,
-  });
-
   return (
-    <div className="prose prose-zinc max-w-none grid grid-cols-6 gap-6">
-      <div className="space-y-3 col-span-6 md:col-span-2 order-2 md:order-1">
-        <p>
-          I grew up in rural Dorset taking apart computers before I'd learned to properly put them back together. That curiosity led me to programming, and by the time I finished school, I'd built a maintenance tracking system for a local dairy - solving real problems with code felt natural.
-        </p>
-        <p>
-          At 18, I moved to London for a software engineering apprenticeship at Sky, where I'd spend the next decade building customer-facing platforms. I worked across NowTV, Sky, and Peacock - account management systems, subscription flows, help sites, and retention features. These platforms served millions of users daily, and getting them right meant balancing complex business requirements with polished, accessible interfaces.
-        </p>
-        <p>
-         I ensure accessibility without compromising aesthetics. Poring over the details: transitions, spacing, micro-interactions. <span className="font-bold text-brand">Providing the polish that makes something feel premium.</span> 
-        </p>
-      </div>
+    <div>
+      <h1 className="sr-only">About</h1>
+      <div className="max-w-none grid grid-cols-6 gap-6">
+        <div className="space-y-3 col-span-6 md:col-span-2 order-2 md:order-1">
+          <p>
+            I grew up in rural Dorset taking apart computers before I&rsquo;d learned to properly put them back together. That curiosity led me to programming, and by the time I finished school, I&rsquo;d built a maintenance tracking system for a local dairy - solving real problems with code felt natural.
+          </p>
+          <p>
+            At 18, I moved to London for a software engineering apprenticeship at Sky, where I&rsquo;d spend the next decade building customer-facing platforms. I worked across NowTV, Sky, and Peacock - account management systems, subscription flows, help sites, and retention features. These platforms served millions of users daily, and getting them right meant balancing complex business requirements with polished, accessible interfaces.
+          </p>
+          <p>
+            I ensure accessibility without compromising aesthetics. Poring over the details: transitions, spacing, micro-interactions. <span className="font-bold text-brand">Providing the polish that makes something feel premium.</span>
+          </p>
+        </div>
 
-      <div ref={containerRef} className="relative col-span-6 md:col-span-4 order-1 md:order-2">
-        <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-foreground/10" />
-        <motion.div
-          style={{ scaleY: progress }}
-          className="absolute left-4 top-0 bottom-0 w-[2px] origin-top bg-foreground/30 z-10"
-        />
-
-        <ul className="space-y-10">
-          {ITEMS.map((item, i) => (
-            <li key={i} className="relative pl-10 sm:pl-16">
-              <span className="absolute left-4 top-1.5 h-2 w-2 -translate-x-[3px] z-10 rounded-full bg-brand" />
-
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.35 }}
-                transition={{ duration: 0.35, ease: "easeOut", delay: i * 0.08 }}
-                className="max-w-prose"
-              >
-                <p className="m-0 text-xs uppercase tracking-wide text-foreground/60">{item.year}</p>
-                <h3 className="m-0 text-lg font-medium">{item.title}</h3>
-                {item.subtitle ? (
-                  <p className="m-0 text-sm text-foreground/70">{item.subtitle}</p>
-                ) : null}
-                <p className="mt-2 text-sm text-foreground/80">{item.description}</p>
-              </motion.div>
-            </li>
-          ))}
-        </ul>
+        <AboutTimeline items={ITEMS} />
       </div>
     </div>
   );

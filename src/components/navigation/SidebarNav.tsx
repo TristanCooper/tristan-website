@@ -28,10 +28,11 @@ export default function SidebarNav() {
     return !activeHref;
   }, [activeHref]);
 
-  // Compute dot position next to the active link using a baseline probe
+  // Compute dot position as a full-stop: tight after the word, bottom sitting on the baseline
   useEffect(() => {
-    const DOT = 8; // dot size in px (h-2 w-2)
-    const GAP = 2; // horizontal gap after word in px
+    const DOT_HOME = 12; // h-3 w-3
+    const DOT_NAV = 8; // h-2 w-2
+    const GAP = 3; // tight gap, like period kerning
 
     const compute = () => {
       const container = containerRef.current;
@@ -46,9 +47,11 @@ export default function SidebarNav() {
       const aRect = anchor.getBoundingClientRect();
       const bRect = baseline.getBoundingClientRect();
 
-      const targetLeft = aRect.right - cRect.left + GAP; // gap after word
-      // Align the DOT's bottom to the text baseline
-      const targetTop = bRect.bottom - cRect.top - DOT/2;
+      const dot = isHome ? DOT_HOME : DOT_NAV;
+      const baselineY = bRect.bottom - cRect.top;
+      const targetLeft = aRect.right - cRect.left + GAP;
+      // Full-stop: dot bottom sits on the baseline
+      const targetTop = baselineY - dot;
       setPos({ x: Math.round(targetLeft), y: Math.round(targetTop) });
     };
 
@@ -58,57 +61,57 @@ export default function SidebarNav() {
     window.addEventListener("resize", compute);
 
     // Observe container size/content changes (e.g., wrapping at mobile)
-    const ro = typeof ResizeObserver !== "undefined" && containerRef.current
-      ? new ResizeObserver(() => compute())
-      : null;
-    if (ro && containerRef.current) ro.observe(containerRef.current);
+    const el = containerRef.current;
+    const ro =
+      typeof ResizeObserver !== "undefined" && el
+        ? new ResizeObserver(() => compute())
+        : null;
+    if (ro && el) ro.observe(el);
 
     // Recompute after fonts load (metrics can shift baselines)
-    let fontReady = false;
-    if (typeof document !== "undefined" && (document as any).fonts?.ready) {
-      (document as any).fonts.ready.then(() => {
-        fontReady = true;
+    if (typeof document !== "undefined" && document.fonts?.ready) {
+      document.fonts.ready.then(() => {
         compute();
       });
     }
 
     return () => {
       window.removeEventListener("resize", compute);
-      if (ro && containerRef.current) ro.disconnect();
+      if (ro) ro.disconnect();
     };
   }, [activeHref]);
 
   return (
     <div ref={containerRef} className="relative">
-      {/* Moving dot */}
+      {/* Moving dot (full-stop) */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
+        initial={{ opacity: 0 }}
         animate={{
           opacity: pos ? 1 : 0,
-          scale: homeActiveHref ? 1.5 : 1,
           x: pos ? pos.x : 0,
           y: pos ? pos.y : 0,
         }}
         transition={{
           x: { type: "spring", stiffness: 500, damping: 28, mass: 0.8, bounce: 0.2 },
           y: { type: "spring", stiffness: 500, damping: 28, mass: 0.8, bounce: 0.2 },
-          scale: { type: "spring", stiffness: 500, damping: 30, mass: 0.7, bounce: 0.25 },
           opacity: { duration: 0.2 }
         }}
-        className="pointer-events-none absolute left-0 top-0 h-1 w-1 rounded-full bg-brand"
-        aria-hidden
+        className={`pointer-events-none absolute left-0 top-0 rounded-full bg-brand ${
+          homeActiveHref ? "h-3 w-3" : "h-2 w-2"
+        }`}
+        aria-hidden="true"
       />
 
       {/* Name (home link) */}
-      <h1 className="text-2xl font-normal tracking-tight sm:text-3xl text-center sm:text-left">
-        <Link ref={homeRef} href="/">
+      <div className="text-2xl font-normal tracking-tight sm:text-3xl text-center sm:text-left">
+        <Link ref={homeRef} href="/" className="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
           Tristan Cooper
-          <span ref={homeBaselineRef} className="inline-block align-baseline w-0 h-0" />
+          <span ref={homeBaselineRef} className="inline-block align-baseline w-0 h-0" aria-hidden="true" />
         </Link>
-      </h1>
+      </div>
 
       {/* Nav */}
-      <nav className="mt-4 flex flex-wrap items-center gap-4 text-sm">
+      <nav aria-label="Primary" className="mt-4 flex flex-wrap items-center gap-4 text-sm">
         {LINKS.map(({ href, label }, i) => (
           <span key={href} className="inline-flex items-center gap-4">
             <Link
@@ -117,7 +120,8 @@ export default function SidebarNav() {
                 linkRefs.current[href] = { ...existing, a: el };
               }}
               href={href}
-              className="underline-offset-4 hover:underline"
+              aria-current={activeHref === href ? "page" : undefined}
+              className="underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             >
               {label}
               <span
@@ -126,6 +130,7 @@ export default function SidebarNav() {
                   linkRefs.current[href] = { ...existing, b: el };
                 }}
                 className="inline-block align-baseline w-0 h-0"
+                aria-hidden="true"
               />
             </Link>
             {i < LINKS.length - 1 && <span className="opacity-30">/</span>}
