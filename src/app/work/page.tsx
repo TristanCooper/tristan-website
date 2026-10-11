@@ -32,6 +32,7 @@ const PROJECTS: Project[] = [
   },
   {
     href: "https://carbonneutraldrinks.com/",
+    image: "/carbon-neutral-drinks.png",
     title: "Carbon Neutral Drinks",
     description:
       "Bespoke high-performance Shopify DTC engine. Custom Liquid theme with no heavy apps for Core Web Vitals, technical SEO with JSON-LD, and full-funnel Meta/Google attribution with conversion-focused checkout.",
