@@ -25,13 +25,13 @@ export default function Home() {
         <h2 className="m-0 text-xl font-normal">Featured projects</h2>
         {/* Grid: on md+, show two columns, equal height */}
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
-          {/* Project 1 */}
+          {/* Featured project */}
           <div className="h-full">
             <ProjectCard
-              href="/work"
-              image="/odoo-call-board.png"
-              title="Odoo Business Essentials"
-              description="Practical Odoo CE addons solving real sales and CRM challenges."
+              href="/work/small-batch-roasting"
+              image="/small-batch-roasting.png"
+              title="Small Batch Roasting"
+              description="Real-time edge inventory and ops tooling for a green-coffee supplier."
             />
           </div>
 

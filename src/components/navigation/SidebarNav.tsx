@@ -30,8 +30,8 @@ export default function SidebarNav() {
 
   // Compute dot position as a full-stop: tight after the word, bottom sitting on the baseline
   useEffect(() => {
-    const DOT_HOME = 12; // h-3 w-3
-    const DOT_NAV = 8; // h-2 w-2
+    const DOT_HOME = 8; // h-2 w-2
+    const DOT_NAV = 6; // h-1.5 w-1.5
     const GAP = 3; // tight gap, like period kerning
 
     const compute = () => {
@@ -97,7 +97,7 @@ export default function SidebarNav() {
           opacity: { duration: 0.2 }
         }}
         className={`pointer-events-none absolute left-0 top-0 rounded-full bg-brand ${
-          homeActiveHref ? "h-3 w-3" : "h-2 w-2"
+          homeActiveHref ? "h-2 w-2" : "h-1.5 w-1.5"
         }`}
         aria-hidden="true"
       />

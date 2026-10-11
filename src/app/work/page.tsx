@@ -16,7 +16,9 @@ const PROJECTS: Project[] = [
     tags: ["Inventory & ERP", "Odoo"],
   },
   {
+    href: "/work/small-batch-roasting",
     title: "Small Batch Roasting",
+    image: "/small-batch-roasting.png",
     description:
       "Overhauled a roastery stuck with a brittle WordPress/plugin setup with phantom stock and routine overselling across multi-origin lots. Rebuilt around a “Coffee Pools” model that mirrors warehouse reality: raw harvest lots and physical barrels dynamically governing child SKUs and multi-bean blends, with Cloudflare Workers + D1 handling atomic deductions via Shopify webhooks in real time. Shipped a multi-persona ops portal: a spatial lot/barrel map for dispatch, blend stockout-risk alerts, and intake tooling.",
     tags: ["Shopify", "SaaS", "Inventory & ERP"],
