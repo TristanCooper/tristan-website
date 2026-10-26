@@ -114,6 +114,20 @@ export default function SmallBatchRoastingPage() {
             moment that matters for overselling.
           </p>
         </div>
+        <figure className="m-0 mt-6 space-y-2">
+          <div className="relative w-full aspect-[2044/648] overflow-hidden rounded bg-white ring-1 ring-inset ring-foreground/15">
+            <Image
+              src="/small-batch-engine-diagram.png"
+              alt="Architecture diagram of the sbr-inventory-sync Cloudflare Worker, connecting Shopify webhooks, staff goods-in, the D1 roast ledger, and Xero invoicing"
+              fill
+              sizes="(max-width: 768px) 100vw, 900px"
+              className="object-contain"
+            />
+          </div>
+          <figcaption className="text-xs uppercase tracking-widest text-foreground/50">
+            Fig. 02: Sync engine, from webhooks and goods-in to live counts and invoices.
+          </figcaption>
+        </figure>
       </section>
 
       {/* 04: Portal + lots board figure threaded in */}
@@ -142,7 +156,7 @@ export default function SmallBatchRoastingPage() {
             />
           </div>
           <figcaption className="text-xs uppercase tracking-widest text-foreground/50">
-            Fig. 02: Lots board, live pool stock with lifecycle actions.
+            Fig. 03: Lots board, live pool stock with lifecycle actions.
           </figcaption>
         </figure>
       </section>
@@ -174,7 +188,7 @@ export default function SmallBatchRoastingPage() {
             />
           </div>
           <figcaption className="text-xs uppercase tracking-widest text-foreground/50">
-            Fig. 03: Flavour Finder, taste preferences matched against live stock.
+            Fig. 04: Flavour Finder, taste preferences matched against live stock.
           </figcaption>
         </figure>
       </section>
