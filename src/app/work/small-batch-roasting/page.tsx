@@ -31,7 +31,7 @@ export default function SmallBatchRoastingPage() {
           <span aria-hidden="true" className="opacity-40">/</span>
           <span>Internal ops tooling</span>
           <span aria-hidden="true" className="opacity-40">/</span>
-          <span>Pre-launch</span>
+          <span>Live</span>
         </div>
       </header>
 
@@ -49,7 +49,7 @@ export default function SmallBatchRoastingPage() {
             />
           </div>
           <figcaption className="text-xs uppercase tracking-widest text-foreground/50">
-            Fig. 01: Storefront with live origin counts, pre-launch work.
+            Fig. 01: Storefront with live origin counts.
           </figcaption>
         </figure>
 
@@ -177,6 +177,14 @@ export default function SmallBatchRoastingPage() {
             respect real availability.
           </p>
         </div>
+        <p className="m-0 mt-4 text-sm">
+          <Link
+            href="https://www.smallbatchroasting.co.uk"
+            className="underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          >
+            Visit the live storefront
+          </Link>
+        </p>
         <figure className="m-0 mt-6 space-y-2">
           <div className="relative w-full aspect-[21/10] overflow-hidden rounded ring-1 ring-inset ring-foreground/15">
             <Image
@@ -212,6 +220,14 @@ export default function SmallBatchRoastingPage() {
           ))}
         </div>
         <p className="m-0 mt-6 text-sm">
+          <Link
+            href="https://www.smallbatchroasting.co.uk"
+            className="underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          >
+            Visit the live site
+          </Link>
+        </p>
+        <p className="m-0 mt-3 text-sm">
           <Link
             href="/work"
             className="underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import * as motion from "motion/react-client";
 
-const ProjectCard = ({ href, title, description, image, tags = [] }: { href?: string; title: string; description: string; image?: string; tags?: string[]; }) => {
+const ProjectCard = ({ href, siteHref, title, description, image, tags = [] }: { href?: string; siteHref?: string; title: string; description: string; image?: string; tags?: string[]; }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -35,6 +35,9 @@ const ProjectCard = ({ href, title, description, image, tags = [] }: { href?: st
             </div>
             {href ? (
             <Link href={href} className="inline-block bg-brand px-2 py-1 mt-2 sm:w-fit text-dark-navy-950 hover:bg-brand-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">View Project</Link>
+            ) : null}
+            {siteHref ? (
+            <Link href={siteHref} className="inline-block px-2 py-1 mt-2 ml-2 sm:w-fit ring-1 ring-inset ring-foreground/15 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">Visit live site</Link>
             ) : null}
         </motion.div>
     )

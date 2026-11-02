@@ -5,6 +5,7 @@ import ProjectCard from "@/components/navigation/ProjectCard";
 
 export type Project = {
   href?: string;
+  siteHref?: string;
   image?: string;
   title: string;
   description: string;
@@ -71,6 +72,7 @@ export default function FilterableProjects({ projects }: { projects: Project[] }
           <ProjectCard
             key={p.href + p.title}
             href={p.href}
+            siteHref={p.siteHref}
             image={p.image}
             title={p.title}
             description={p.description}

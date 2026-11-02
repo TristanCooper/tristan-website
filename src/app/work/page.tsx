@@ -17,6 +17,7 @@ const PROJECTS: Project[] = [
   },
   {
     href: "/work/small-batch-roasting",
+    siteHref: "https://www.smallbatchroasting.co.uk",
     title: "Small Batch Roasting",
     image: "/small-batch-roasting.png",
     description:
